@@ -16,6 +16,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             width: 60rem;
             padding: 3rem;
         }
+
+        .booth {
+        	width: 400px;
+			background-color: #ccc;
+			border: 10px solid #ddd;
+			margin: 0 auto;
+        }
 	</style>
 </head>
 <body>
@@ -55,6 +62,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="custom-file">
 			<input type="file" class="custom-file-input" id="customFile" name="image" required style="width: 20rem;">
 			<label class="custom-file-label" for="customFile">Choose file</label>
+		</div>
+
+		<div class="booth">
+			<video id="video" width=400 height="300" ></video>
 		</div>
 		<br><br>
 	<center>
