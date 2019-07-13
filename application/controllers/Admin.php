@@ -17,7 +17,6 @@ class Admin extends CI_Controller {
 
 		$data['raffles'] = $this->Raffle->get_all();
 		$this->load->view('raffleList',$data);
-		
 	}
 	
 	public function newRaffle($raffle_id=0){
@@ -70,7 +69,7 @@ class Admin extends CI_Controller {
 	
 	
 	public function entryForm($id){
-		
+
 		$data['error'] = false;
 		if($this->input->method() == 'post'){
 			
@@ -81,11 +80,10 @@ class Admin extends CI_Controller {
 			return redirect(base_url('/admin/thanks/'.$id));
 			}else{
 				
-				$data['error'] = 'Phone Number is already registered for this Raffle';
+				$data['error'] = 'Phone is already register for this Raffle';
 			}
 			
 		}
-		
 		
 		$this->load->view('entryForm',$data);
 	}
@@ -119,36 +117,46 @@ class Admin extends CI_Controller {
 	
 	
 	function draw($prize_id){
-	
+		$winner ='';
 		$out = [];
 		$out['html'] = '';
 		$prize = $this->Prize->get_by_prize($prize_id);
 		if($prize){
 	
-			$raffle = $this->Raffle->get($prize['raffle_id']);
-			if($raffle){
-					
-			
-					$winner = $this->Entry->winner($prize['raffle_id'],$prize_id);
-					if($winner){
-						
-						unset($winner['entry_photo']);
-						
-						$out['data'] = $winner;
-					}else{
-						
-						$out['error'] = 'Winner  is not valid.';	
-					}
-					
-			}else{
-				$out['error'] = 'Event ID is not valid.';	
+			$winners = $this->Entry->all_winners($prize['raffle_id']);
+		
+			if($prize['prize_quantitiy'] > count($winners)){ 
 				
+				$raffle = $this->Raffle->get($prize['raffle_id']);
+				if($raffle){
+						
+				
+						$winner = $this->Entry->winner($prize['raffle_id'],$prize_id);
+						if($winner){
+							
+							unset($winner['entry_photo']);
+							
+							$out['data'] = $winner;
+						}else{
+							
+							$out['error'] = 'No Winner.';	
+						}
+						
+				}else{
+					$out['error'] = 'Event ID is not valid.';	
+					
+				}
+			}else{
+				
+				$out['error'] = 'All Winner drawn';	
+				$out['button'] = 'hide';	
 			}
 			
-			$winners = $this->Entry->all_winners($prize['raffle_id']);
 			
 			$html = '';
 			if($winner){
+					$winners = $this->Entry->all_winners($prize['raffle_id']);
+					
 				foreach($winners as $winner){
 					$html .= "<p>{$winner['entry_firstname']} {$winner['entry_lastname']}</p>";
 					

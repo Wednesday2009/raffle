@@ -21,8 +21,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <div class="row justify-content-center">
 <div id ="container">
-
-<!-- Should be responsive to which this Event belongs to -->
+<?php if( $error){ ?>
+<div class="alert alert-danger"><?php echo $error ?></div>
+<?php } ?>
+<!--a onClick="history.go(-1);" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 1rem; color: white;">Back to Raffle Event</a-->
+<br>
 <h1 style="margin-bottom: 1.5rem;">Event Name</h1>
 
 	<form style="margin: 2rem;" enctype="multipart/form-data" action="" method="post">
@@ -42,13 +45,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  </div>
 
 	  <div class="form-group">
-	    <label for="inputAddress2">First Name</label>
-	    <input type="text" class="form-control" id="inputAddress2" required name="first_name" placeholder="First Name" style="width: 20rem;">
+	    <label>First Name</label>
+	    <input type="text" class="form-control" required name="first_name" placeholder="First Name" style="width: 20rem;">
 	    <br>
-	    <label for="inputAddress2">Last Name</label>
+	    <label>Last Name</label>
 	    <input type="text" class="form-control" placeholder="Last Name" required name="last_name" style="width: 20rem;">
 	  </div>
-
+	  <label>Choose Photo</label>
 		<div class="custom-file">
 		  <input type="file" class="custom-file-input" id="customFile" name="image" required style="width: 20rem;">
 		  <label class="custom-file-label" for="customFile">Choose file</label>

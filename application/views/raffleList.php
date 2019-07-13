@@ -31,7 +31,7 @@
 
         <!-- These are raffle event cards that are all created whenever a new raffle event is created. The card title is the raffle event name. If check raffle button is clicked it should go to the raffle's respective raffleCreated.php-->
         <div class="card" style="margin: 2rem; margin-left: 0;">
-          <div class="card-header" style="font-size: 24px;"><strong>Raffle Events</div>
+          <div class="card-header">Raffles</div>
           <div class="card-body">
             <?php foreach($raffles as $raffle): ?>
 			<h5 class="card-title"><?php echo $raffle['raffle_event_name'] ?></h5>

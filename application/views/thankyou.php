@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- Should be responsive to which this Event belongs to -->
 <h2 style="margin-bottom: 1.5rem;">THANK YOU FOR JOINING OUR RAFFLE!</h1>
 
-   <a href="<?php echo base_url("/admin/raffleCreated/".$id) ?>" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 1rem;">Back to Raffle Event</a>
+   <a href="<?php echo base_url("/admin/raffleCreated/".$id) ?>" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 1rem;">Back to raffleCreated</a>
    
 </CENTER>
 </div>
