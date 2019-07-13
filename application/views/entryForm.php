@@ -53,8 +53,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  </div>
 	  <label>Choose Photo</label>
 		<div class="custom-file">
-		  <input type="file" class="custom-file-input" id="customFile" name="image" required style="width: 20rem;">
-		  <label class="custom-file-label" for="customFile">Choose file</label>
+			<input type="file" class="custom-file-input" id="customFile" name="image" required style="width: 20rem;">
+			<label class="custom-file-label" for="customFile">Choose file</label>
 		</div>
 		<br><br>
 	<center>
@@ -62,6 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  <button type="submit" class="btn btn-primary" style="width: 20rem;">Enter Raffle</button>
 	</center>
 	</form>
+
 	
 	 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
    
